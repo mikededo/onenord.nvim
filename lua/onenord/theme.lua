@@ -557,6 +557,7 @@ function theme.highlights(colors, config)
 
     local plugins = {
       -- Cmp
+      CmpNormal = { fg = colors.white, bg = colors.darker_black },
       CmpItemAbbr = { fg = colors.white },
       CmpItemAbbrDeprecated = { fg = colors.white },
       CmpItemAbbrMatch = { fg = colors.blue, style = "bold" },
@@ -647,15 +648,15 @@ function theme.highlights(colors, config)
       -- Telescope
       TelescopeBorder = { fg = colors.one_bg3 },
       TelescopeMatching = { fg = colors.yellow, style = "bold" },
-      TelescopeNormal = { fg = colors.white, bg = colors.black },
+      TelescopeNormal = { fg = colors.white, bg = colors.black2 },
       TelescopePreviewBorder = { fg = colors.one_bg3 },
       TelescopePreviewTitle = { fg = colors.black, bg = colors.blue },
       TelescopePromptBorder = { fg = colors.one_bg3 },
-      TelescopePromptNormal = { bg = colors.black },
-      TelescopePromptPrefix = { fg = colors.red, bg = colors.black },
+      TelescopePromptNormal = { bg = colors.black2 },
+      TelescopePromptPrefix = { fg = colors.red, bg = colors.black2 },
       TelescopeResultsBorder = { fg = colors.one_bg3 },
-      TelescopeResultsTitle = { fg = colors.black, bg = colors.green },
-      TelescopeSelection = { fg = colors.cyan },
+      TelescopeResultsTitle = { fg = colors.black2, bg = colors.green },
+      TelescopeSelection = { fg = colors.cyan, bg = colors.one_bg },
       TelescopeSelectionCaret = { fg = colors.cyan },
 
       -- NvimTree
