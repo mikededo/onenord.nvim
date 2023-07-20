@@ -320,7 +320,7 @@ function theme.highlights(colors, config)
       -- Annotations that can be attached to the code to denote some kind of meta information. e.g. C++/Dart attributes.
       ["@attribute"] = { fg = "#e06c75" },
       -- Boolean literals: `True` and `False` in Python.
-      ["@boolean"] = { fg = colors.orange },
+      ["@boolean"] = { fg = colors.yellow },
       -- Character literals: `'a'` in C.
       ["@character"] = { fg = colors.base08 },
       -- Line comments and block comments.
@@ -367,7 +367,7 @@ function theme.highlights(colors, config)
       -- Identifiers referring to modules and namespaces.
       ["@namespace"] = { fg = "#e5c07b" },
       -- Numeric literals that don't fit into other categories.
-      ["@number"] = { fg = colors.orange },
+      ["@number"] = { fg = colors.yellow },
       -- Binary or unary operators: `+`, and also `->` and `*` in C.
       ["@operator"] = { fg = colors.purple },
       -- Parameters of a function.
