@@ -177,7 +177,7 @@ function theme.highlights(colors, config)
       -- See also |hl-EndOfBuffer|.
       NonText = { fg = colors.grey },
       -- normal item |hl-Pmenu|
-      Pmenu = { fg = colors.white, bg = colors.pmenu_bg },
+      Pmenu = { fg = colors.white, bg = colors.one_bg },
       -- selected item |hl-PmenuSel|
       PmenuSel = { bg = colors.selection },
       -- scrollbar |hl-PmenuSbar|
@@ -646,15 +646,15 @@ function theme.highlights(colors, config)
       GitSignsDeleteLn = { fg = colors.diff_remove }, -- diff mode: Deleted line |diff.txt|
 
       -- Telescope
-      TelescopeBorder = { fg = colors.one_bg3 },
+      TelescopeBorder = { fg = colors.one_bg3, bg = colors.black },
       TelescopeMatching = { fg = colors.yellow, style = "bold" },
-      TelescopeNormal = { fg = colors.white, bg = colors.black2 },
-      TelescopePreviewBorder = { fg = colors.one_bg3 },
+      TelescopeNormal = { fg = colors.white, bg = colors.black },
+      TelescopePreviewBorder = { fg = colors.one_bg3, bg = colors.black },
       TelescopePreviewTitle = { fg = colors.black, bg = colors.blue },
-      TelescopePromptBorder = { fg = colors.one_bg3 },
-      TelescopePromptNormal = { bg = colors.black2 },
-      TelescopePromptPrefix = { fg = colors.red, bg = colors.black2 },
-      TelescopeResultsBorder = { fg = colors.one_bg3 },
+      TelescopePromptBorder = { fg = colors.one_bg3, bg = colors.black },
+      TelescopePromptNormal = { bg = colors.black },
+      TelescopePromptPrefix = { fg = colors.red, bg = colors.black },
+      TelescopeResultsBorder = { fg = colors.one_bg3, bg = colors.black },
       TelescopeResultsTitle = { fg = colors.black2, bg = colors.green },
       TelescopeSelection = { fg = colors.cyan, bg = colors.one_bg },
       TelescopeSelectionCaret = { fg = colors.cyan },
