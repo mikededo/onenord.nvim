@@ -60,7 +60,7 @@ function theme.highlights(colors, config)
       -- text that stands out, HTML links
       Underlined = { fg = colors.green, style = "underline" },
       -- left blank, hidden
-      Ignore = { fg = colors.cyan, bg = colors.bg, style = "bold" },
+      Ignore = { fg = colors.cyan, bg = colors.base04, style = "bold" },
       -- any erroneous construct
       Error = { fg = colors.error, bg = colors.none, style = "bold,underline" },
       -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
@@ -75,7 +75,7 @@ function theme.highlights(colors, config)
       -- normal function names
       Function = { fg = colors.blue, style = config.styles.functions },
       -- any variable name
-      Identifier = { fg = colors.fg, style = config.styles.variables },
+      Identifier = { fg = colors.base08, style = config.styles.variables },
       -- any string
       String = { fg = colors.green, config.styles.strings },
 
@@ -141,9 +141,9 @@ function theme.highlights(colors, config)
       -- placeholder characters substituted for concealed text (see 'conceallevel')
       Conceal = { bg = colors.none },
       -- the character under the cursor
-      Cursor = { fg = colors.fg, bg = colors.none, style = "reverse" },
+      Cursor = { fg = colors.white, bg = colors.none, style = "reverse" },
       -- like Cursor, but used when in IME mode
-      CursorIM = { fg = colors.fg, bg = colors.none, style = "reverse" },
+      CursorIM = { fg = colors.white, bg = colors.none, style = "reverse" },
       -- directory names (and other special names in listings)
       Directory = { fg = colors.blue, bg = colors.none },
       -- diff mode: Added line
@@ -165,7 +165,7 @@ function theme.highlights(colors, config)
       -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
       LineNr = { fg = colors.grey_fg },
       -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-      CursorLineNr = { fg = colors.fg },
+      CursorLineNr = { fg = colors.white },
       -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
       MatchParen = { fg = colors.yellow, bg = colors.none, style = "bold" },
       -- 'showmode' message (e.g., "-- INSERT -- ")
@@ -177,13 +177,13 @@ function theme.highlights(colors, config)
       -- See also |hl-EndOfBuffer|.
       NonText = { fg = colors.grey },
       -- normal item |hl-Pmenu|
-      Pmenu = { fg = colors.fg, bg = colors.float },
+      Pmenu = { fg = colors.white, bg = colors.pmenu_bg },
       -- selected item |hl-PmenuSel|
       PmenuSel = { bg = colors.selection },
       -- scrollbar |hl-PmenuSbar|
       PmenuSbar = { bg = colors.float },
       -- thumb of the scrollbar  |hl-PmenuThumb|
-      PmenuThumb = { bg = colors.fg },
+      PmenuThumb = { bg = colors.white },
       -- |hit-enter| prompt and yes/no questions
       Question = { fg = colors.green },
       -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
@@ -206,19 +206,19 @@ function theme.highlights(colors, config)
       -- |spell| Combined with the highlighting used otherwise.
       SpellRare = { fg = colors.none, bg = colors.none, style = "italic,undercurl", sp = colors.purple },
       -- status line of current window
-      StatusLine = { fg = colors.fg, bg = colors.active },
+      StatusLine = { fg = colors.white, bg = colors.active },
       -- status lines of not-current windows Note: if this is equal to "StatusLine"
       -- Vim will use "^^^" in the status line of the current window.
       StatusLineNC = { fg = colors.grey_fg, bg = colors.active },
       -- status line of current terminal window
-      StatusLineTerm = { fg = colors.fg, bg = colors.active },
+      StatusLineTerm = { fg = colors.white, bg = colors.active },
       -- status lines of not-current terminal windows Note: if this is equal to "StatusLine"
       -- Vim will use "^^^" in the status line of the current window.
       StatusLineTermNC = { fg = colors.grey_fg, bg = colors.active },
       -- tab pages line, where there are no labels
       TabLineFill = { fg = colors.grey_fg, bg = colors.active },
       -- tab pages line, active tab page label
-      TablineSel = { fg = colors.cyan, bg = colors.bg },
+      TablineSel = { fg = colors.cyan, bg = colors.one_bg },
       Tabline = { fg = colors.grey_fg, bg = colors.active },
       -- titles for output from ":set all", ":autocmd" etc.
       Title = { fg = colors.green, bg = colors.none, style = "bold" },
@@ -233,9 +233,9 @@ function theme.highlights(colors, config)
       -- current match in 'wildmenu' completion
       WildMenu = { fg = colors.yellow, bg = colors.none, style = "bold" },
       -- window bar of current window
-      WinBar = { fg = colors.fg, bg = colors.bg },
+      WinBar = { fg = colors.white, bg = colors.one_bg },
       -- window bar of not-current windows
-      WinBarNC = { fg = colors.grey_fg, bg = colors.bg },
+      WinBarNC = { fg = colors.grey_fg, bg = colors.one_bg },
       -- Screen-column at the cursor, when 'cursorcolumn' is set.
       CursorColumn = { fg = colors.none, bg = colors.float },
       -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
@@ -263,12 +263,12 @@ function theme.highlights(colors, config)
       DashboardFooter = { fg = colors.green, style = "italic" },
 
       -- normal text and background color
-      Normal = { fg = colors.fg, bg = colors.bg },
-      NormalNC = { bg = colors.bg },
-      SignColumn = { fg = colors.fg, bg = colors.none },
+      Normal = { fg = colors.white, bg = colors.one_bg },
+      NormalNC = { bg = colors.one_bg },
+      SignColumn = { fg = colors.white, bg = colors.none },
 
       -- the column separating vertically split windows
-      VertSplit = { fg = colors.bg },
+      VertSplit = { fg = colors.line },
 
       EndOfBuffer = { fg = colors.grey },
     }
@@ -278,8 +278,8 @@ function theme.highlights(colors, config)
     -- Set non-current background
     if config.fade_nc then
       editor.NormalNC["bg"] = colors.active
-      editor.NormalFloat["bg"] = colors.bg
-      editor.FloatBorder["bg"] = colors.bg
+      editor.NormalFloat["bg"] = colors.darker_black
+      editor.FloatBorder["bg"] = colors.darker_black
     end
 
     -- Set transparent background
@@ -399,7 +399,7 @@ function theme.highlights(colors, config)
       -- Tag delimiters like `<` `>` `/`.
       ["@tag.delimiter"] = { fg = colors.delimiter },
       -- Non-structured text. Like text in a markup language.
-      ["@text"] = { fg = colors.fg },
+      ["@text"] = { fg = colors.white },
       -- Text to be represented in bold.
       ["@text.strong"] = { fg = colors.purple, style = "bold" },
       -- Text to be represented with emphasis.
@@ -417,13 +417,13 @@ function theme.highlights(colors, config)
       -- URIs like hyperlinks or email addresses.
       ["@text.uri"] = { fg = colors.cyan, style = "underline" },
       -- Math environments like LaTeX's `$ ... $`
-      ["@text.math"] = { fg = colors.fg },
+      ["@text.math"] = { fg = colors.yellow },
       -- Footnotes, text references, citations, etc.
       ["@text.reference"] = { fg = colors.purple },
       -- Text environments of markup languages.
-      ["@text.environment"] = { fg = colors.fg },
+      ["@text.environment"] = { fg = colors.blue },
       -- Text/string indicating the type of text environment. Like the name of a `\begin` block in LaTeX.
-      ["@text.environment.name"] = { fg = colors.fg },
+      ["@text.environment.name"] = { fg = colors.blue },
       -- Text TODOS
       ["@text.todo"] = { fg = colors.yellow },
       -- Text representation of an informational note.
@@ -437,7 +437,7 @@ function theme.highlights(colors, config)
       -- Built-in types: `i32` in Rust.
       ["@type.builtin"] = { fg = colors.orange },
       -- Variable names that don't fit into other categories.
-      ["@variable"] = { fg = colors.fg, style = config.styles.variables },
+      ["@variable"] = { fg = colors.base05, style = config.styles.variables },
       -- Variable names defined by the language: `this` or `self` in Javascript.
       ["@variable.builtin"] = { fg = colors.red, style = config.styles.variables },
     }
@@ -557,8 +557,8 @@ function theme.highlights(colors, config)
 
     local plugins = {
       -- Cmp
-      CmpItemAbbr = { fg = colors.fg },
-      CmpItemAbbrDeprecated = { fg = colors.fg },
+      CmpItemAbbr = { fg = colors.white },
+      CmpItemAbbrDeprecated = { fg = colors.white },
       CmpItemAbbrMatch = { fg = colors.blue, style = "bold" },
       CmpItemAbbrMatchFuzzy = { fg = colors.blue, underline = true },
       CmpItemMenu = { fg = colors.grey_fg },
@@ -602,8 +602,8 @@ function theme.highlights(colors, config)
 
       -- Trouble
       TroubleCount = { fg = colors.purple },
-      TroubleNormal = { fg = colors.fg },
-      TroubleText = { fg = colors.fg },
+      TroubleNormal = { fg = colors.white },
+      TroubleText = { fg = colors.white },
 
       -- Diff
       diffAdded = { fg = colors.diff_add },
@@ -618,7 +618,7 @@ function theme.highlights(colors, config)
       -- Neogit
       NeogitBranch = { fg = colors.purple },
       NeogitRemote = { fg = colors.orange },
-      NeogitHunkHeader = { fg = colors.fg, bg = colors.highlight },
+      NeogitHunkHeader = { fg = colors.white, bg = colors.highlight },
       NeogitHunkHeaderHighlight = { fg = colors.yellow, bg = colors.highlight },
       NeogitDiffContextHighlight = { bg = colors.active },
       NeogitDiffDeleteHighlight = { fg = colors.diff_remove, bg = colors.diff_remove_bg },
@@ -647,7 +647,7 @@ function theme.highlights(colors, config)
       -- Telescope
       TelescopeBorder = { fg = colors.one_bg3 },
       TelescopeMatching = { fg = colors.yellow, style = "bold" },
-      TelescopeNormal = { fg = colors.fg, bg = colors.black },
+      TelescopeNormal = { fg = colors.white, bg = colors.black },
       TelescopePreviewBorder = { fg = colors.one_bg3 },
       TelescopePreviewTitle = { fg = colors.black, bg = colors.blue },
       TelescopePromptBorder = { fg = colors.one_bg3 },
@@ -674,7 +674,7 @@ function theme.highlights(colors, config)
       NvimTreeOpenedFile = { fg = colors.none },
       NvimTreeSpecialFile = { fg = colors.orange, style = "underline" },
       NvimTreeImageFile = { fg = colors.purple, style = "bold" },
-      NvimTreeNormal = { fg = colors.fg, bg = colors.active },
+      NvimTreeNormal = { fg = colors.white, bg = colors.active },
       NvimTreeCursorLine = { bg = colors.float },
       NvimTreeVertSplit = { fg = colors.active, bg = colors.active },
       LspDiagnosticsError = { fg = colors.error },
@@ -695,8 +695,8 @@ function theme.highlights(colors, config)
       NeoTreeGitConflict = { fg = colors.red },
       NeoTreeGitModified = { fg = colors.yellow },
       NeoTreeGitUntracked = { fg = colors.green },
-      NeoTreeNormal = { fg = colors.fg, bg = colors.active },
-      NeoTreeNormalNC = { fg = colors.fg, bg = colors.active },
+      NeoTreeNormal = { fg = colors.white, bg = colors.one_bg },
+      NeoTreeNormalNC = { fg = colors.white, bg = colors.one_bg },
       NeoTreeSymbolicLinkTarget = { fg = colors.cyan, style = "bold" },
 
       -- WhichKey
@@ -707,17 +707,17 @@ function theme.highlights(colors, config)
       WhichKeyFloat = { bg = colors.active },
 
       -- LspSaga
-      TitleString = { fg = colors.fg },
+      TitleString = { fg = colors.white },
       TitleIcon = { fg = colors.red },
       ActionPreviewNormal = { link = "SagaNormal" },
       ActionPreviewBorder = { link = "SagaBorder" },
-      ActionPreviewTitle = { fg = colors.yellow, bg = colors.bg },
+      ActionPreviewTitle = { fg = colors.yellow, bg = colors.black },
       CodeActionNormal = { link = "SagaNormal" },
       CodeActionBorder = { link = "SagaBorder" },
       CodeActionText = { fg = colors.orange },
       CodeActionNumber = { fg = colors.green },
       FinderSelection = { fg = colors.cyan, style = "bold" },
-      FinderFileName = { fg = colors.fg_light },
+      FinderFileName = { fg = colors.delimiter },
       FinderCount = { link = "Label" },
       FinderIcon = { fg = colors.cyan },
       FinderType = { fg = colors.yellow },
@@ -734,7 +734,7 @@ function theme.highlights(colors, config)
       HoverNormal = { link = "SagaNormal" },
       HoverBorder = { link = "SagaBorder" },
       RenameBorder = { link = "SagaBorder" },
-      RenameNormal = { fg = colors.orange, bg = colors.bg },
+      RenameNormal = { fg = colors.orange, bg = colors.black },
       RenameMatch = { link = "Search" },
       DiagnosticBorder = { link = "SagaBorder" },
       DiagnosticSource = { fg = "gray" },
@@ -744,7 +744,7 @@ function theme.highlights(colors, config)
       DiagnosticHintBorder = { link = "DiagnosticHint" },
       DiagnosticInfoBorder = { link = "DiagnosticInfo" },
       DiagnosticPos = { fg = colors.grey_fg },
-      DiagnosticWord = { fg = colors.fg },
+      DiagnosticWord = { fg = colors.white },
       CallHierarchyNormal = { link = "SagaNormal" },
       CallHierarchyBorder = { link = "SagaBorder" },
       CallHierarchyIcon = { fg = colors.purple },
@@ -757,31 +757,10 @@ function theme.highlights(colors, config)
 
       -- BufferLine
       BufferLineIndicatorSelected = { fg = colors.yellow },
-      BufferLineFill = { bg = colors.bg },
+      BufferLineFill = { bg = colors.black },
 
       -- nvim-treesitter-context
       TreesitterContext = { fg = colors.none, bg = colors.active },
-
-      -- barbar
-      BufferCurrent = { fg = colors.fg, bg = colors.bg },
-      BufferCurrentIndex = { fg = colors.fg, bg = colors.bg },
-      BufferCurrentMod = { fg = colors.yellow, bg = colors.bg, style = "bold" },
-      BufferCurrentSign = { fg = colors.cyan, bg = colors.bg },
-      BufferCurrentTarget = { fg = colors.red, bg = colors.bg, style = "bold" },
-      BufferVisible = { fg = colors.fg, bg = colors.bg },
-      BufferVisibleIndex = { fg = colors.fg, bg = colors.bg },
-      BufferVisibleMod = { fg = colors.yellow, bg = colors.bg, style = "bold" },
-      BufferVisibleSign = { fg = colors.grey_fg, bg = colors.bg },
-      BufferVisibleTarget = { fg = colors.red, bg = colors.bg, style = "bold" },
-      BufferInactive = { fg = colors.grey_fg, bg = colors.active },
-      BufferInactiveIndex = { fg = colors.grey_fg, bg = colors.active },
-      BufferInactiveMod = { fg = colors.yellow, bg = colors.active },
-      BufferInactiveSign = { fg = colors.grey_fg, bg = colors.active },
-      BufferInactiveTarget = { fg = colors.red, bg = colors.active, style = "bold" },
-
-      -- Sneak
-      Sneak = { fg = colors.bg, bg = colors.fg },
-      SneakScope = { bg = colors.selection },
 
       -- Indent Blankline
       IndentBlanklineChar = { fg = colors.selection, style = "nocombine" },
@@ -799,7 +778,7 @@ function theme.highlights(colors, config)
       illuminatedCurWord = { bg = colors.highlight },
 
       -- Hop
-      HopNextKey = { fg = colors.fg_light, style = "bold" },
+      HopNextKey = { fg = colors.delimiter, style = "bold" },
       HopNextKey1 = { fg = colors.cyan, style = "bold" },
       HopNextKey2 = { fg = colors.purple },
       HopUnmatched = { fg = colors.grey_fg },
@@ -815,7 +794,7 @@ function theme.highlights(colors, config)
       LightspeedShortcut = { fg = "#E5E9F0", bg = colors.pink, style = "bold,underline" },
       LightspeedMaskedChar = { fg = colors.purple },
       LightspeedGreyWash = { fg = colors.grey },
-      LightspeedUnlabeledMatch = { fg = colors.fg_light, style = "bold" },
+      LightspeedUnlabeledMatch = { fg = colors.delimiter, style = "bold" },
       LightspeedOneCharMatch = { fg = colors.yellow, style = "bold,reverse" },
 
       -- Navic
@@ -845,7 +824,7 @@ function theme.highlights(colors, config)
       NavicIconsEvent = { bg = colors.active, fg = colors.purple },
       NavicIconsOperator = { bg = colors.active, fg = colors.purple },
       NavicIconsTypeParameter = { bg = colors.active, fg = colors.yellow },
-      NavicText = { bg = colors.active, fg = colors.fg },
+      NavicText = { bg = colors.active, fg = colors.white },
       NavicSeparator = { bg = colors.active, fg = colors.cyan },
 
       -- nvim-ts-rainbow
@@ -881,8 +860,8 @@ function theme.highlights(colors, config)
     vim.g.terminal_color_8 = colors.selection
 
     -- light
-    vim.g.terminal_color_7 = colors.fg
-    vim.g.terminal_color_15 = colors.fg_light
+    vim.g.terminal_color_7 = colors.white
+    vim.g.terminal_color_15 = colors.delimiter
 
     -- colors
     vim.g.terminal_color_1 = colors.red
