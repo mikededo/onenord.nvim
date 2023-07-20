@@ -764,11 +764,11 @@ function theme.highlights(colors, config)
       TreesitterContext = { fg = colors.none, bg = colors.active },
 
       -- Indent Blankline
-      IndentBlanklineChar = { fg = colors.selection, style = "nocombine" },
-      IndentBlanklineSpaceChar = { fg = colors.grey, style = "nocombine" },
+      IndentBlanklineChar = { fg = colors.line, style = "nocombine" },
+      IndentBlanklineSpaceChar = { fg = colors.line, style = "nocombine" },
       IndentBlanklineSpaceCharBlankline = { fg = colors.grey, style = "nocombine" },
-      IndentBlanklineContextChar = { fg = colors.purple, style = "nocombine" },
-      IndentBlanklineContextStart = { style = "underline", sp = colors.purple },
+      IndentBlanklineContextChar = { fg = colors.grey, style = "nocombine" },
+      IndentBlanklineContextStart = { style = "underline", sp = colors.purple, fg = colors.one_bg2 },
 
       -- Nvim dap
       DapBreakpoint = { fg = colors.red },
