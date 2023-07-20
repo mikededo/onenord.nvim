@@ -58,7 +58,7 @@ colors.hint = colors.purple
 
 colors.diff_add = colors.green
 colors.diff_add_bg = "#394E3D"
-colors.diff_change = colors.dark_blue
+colors.diff_change = colors.base0d
 colors.diff_change_bg = "#39495D"
 colors.diff_remove = colors.red
 colors.diff_remove_bg = "#4D2B2E"
@@ -69,6 +69,7 @@ colors.float = "#3B4252"
 colors.highlight = "#3F4758"
 colors.highlight_dark = "#434C5E"
 colors.selection = "#4C566A"
+colors.delimiter = "#abb2bf"
 
 colors.none = "NONE"
 

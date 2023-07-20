@@ -46,9 +46,9 @@ function theme.highlights(colors, config)
       -- preprocessor #if, #else, #endif, etc.
       PreCondit = { fg = colors.purple },
       -- any special symbol
-      Special = { fg = colors.light_red },
+      Special = { fg = colors.base0c },
       -- special character in a constant
-      SpecialChar = { fg = colors.light_red },
+      SpecialChar = { fg = colors.base0f },
       -- you can use CTRL-] on this
       Tag = { fg = colors.green },
       -- character that needs attention like , or .
@@ -104,15 +104,15 @@ function theme.highlights(colors, config)
       markdownH1 = { fg = colors.dark_blue, style = "bold" },
       markdownH2 = { fg = colors.blue, style = "bold" },
       markdownH3 = { fg = colors.cyan, style = "bold" },
-      markdownH4 = { fg = colors.light_green },
-      markdownH5 = { fg = colors.light_green },
-      markdownH6 = { fg = colors.light_green },
+      markdownH4 = { fg = colors.green },
+      markdownH5 = { fg = colors.green },
+      markdownH6 = { fg = colors.green },
       markdownH1Delimiter = { fg = colors.dark_blue },
       markdownH2Delimiter = { fg = colors.blue },
       markdownH3Delimiter = { fg = colors.cyan },
-      markdownH4Delimiter = { fg = colors.light_green },
-      markdownH5Delimiter = { fg = colors.light_green },
-      markdownH6Delimiter = { fg = colors.light_green },
+      markdownH4Delimiter = { fg = colors.green },
+      markdownH5Delimiter = { fg = colors.green },
+      markdownH6Delimiter = { fg = colors.green },
       markdownId = { fg = colors.yellow },
       markdownIdDeclaration = { fg = colors.purple },
       markdownIdDelimiter = { fg = colors.grey_fg },
@@ -175,7 +175,7 @@ function theme.highlights(colors, config)
       -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist
       -- in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line).
       -- See also |hl-EndOfBuffer|.
-      NonText = { fg = colors.gray },
+      NonText = { fg = colors.grey },
       -- normal item |hl-Pmenu|
       Pmenu = { fg = colors.fg, bg = colors.float },
       -- selected item |hl-PmenuSel|
@@ -229,7 +229,7 @@ function theme.highlights(colors, config)
       -- warning messages
       WarningMsg = { fg = colors.warn },
       -- "nbsp", "space", "tab" and "trail" in 'listchars'
-      Whitespace = { fg = colors.gray },
+      Whitespace = { fg = colors.grey },
       -- current match in 'wildmenu' completion
       WildMenu = { fg = colors.yellow, bg = colors.none, style = "bold" },
       -- window bar of current window
@@ -270,7 +270,7 @@ function theme.highlights(colors, config)
       -- the column separating vertically split windows
       VertSplit = { fg = colors.bg },
 
-      EndOfBuffer = { fg = colors.gray },
+      EndOfBuffer = { fg = colors.grey },
     }
 
     -- Options:
@@ -377,11 +377,11 @@ function theme.highlights(colors, config)
       -- Same as `@field`.
       ["@property"] = { fg = "#e06c75" },
       -- Punctuation delimiters: Periods, commas, semicolons, etc.
-      ["@punctuation.delimiter"] = { fg = "#abb2bf" },
+      ["@punctuation.delimiter"] = { fg = colors.delimiter },
       -- Brackets, braces, parentheses, etc.
-      ["@punctuation.bracket"] = { fg = "#abb2bf" },
+      ["@punctuation.bracket"] = { fg = colors.delimiter },
       -- Special punctuation that doesn't fit into the previous categories.
-      ["@punctuation.special"] = { fg = "#abb2bf" },
+      ["@punctuation.special"] = { fg = colors.delimiter },
       -- Keywords related to loops: `for`, `while`, etc.
       ["@repeat"] = { fg = colors.purple, style = config.styles.keywords },
       -- String literals.
@@ -397,7 +397,7 @@ function theme.highlights(colors, config)
       -- HTML tag attributes.
       ["@tag.attribute"] = { fg = "#e5c07b" },
       -- Tag delimiters like `<` `>` `/`.
-      ["@tag.delimiter"] = { fg = colors.dark_blue },
+      ["@tag.delimiter"] = { fg = colors.delimiter },
       -- Non-structured text. Like text in a markup language.
       ["@text"] = { fg = colors.fg },
       -- Text to be represented in bold.
@@ -645,20 +645,24 @@ function theme.highlights(colors, config)
       GitSignsDeleteLn = { fg = colors.diff_remove }, -- diff mode: Deleted line |diff.txt|
 
       -- Telescope
-      TelescopeNormal = { fg = colors.fg, bg = colors.bg },
-      TelescopePromptPrefix = { fg = colors.purple },
-      TelescopePromptBorder = { fg = colors.blue },
-      TelescopeResultsBorder = { fg = colors.blue },
-      TelescopePreviewBorder = { fg = colors.blue },
-      TelescopeSelectionCaret = { fg = colors.cyan },
-      TelescopeSelection = { fg = colors.cyan },
+      TelescopeBorder = { fg = colors.one_bg3 },
       TelescopeMatching = { fg = colors.yellow, style = "bold" },
+      TelescopeNormal = { fg = colors.fg, bg = colors.black },
+      TelescopePreviewBorder = { fg = colors.one_bg3 },
+      TelescopePreviewTitle = { fg = colors.black, bg = colors.blue },
+      TelescopePromptBorder = { fg = colors.one_bg3 },
+      TelescopePromptNormal = { bg = colors.black },
+      TelescopePromptPrefix = { fg = colors.red, bg = colors.black },
+      TelescopeResultsBorder = { fg = colors.one_bg3 },
+      TelescopeResultsTitle = { fg = colors.black, bg = colors.green },
+      TelescopeSelection = { fg = colors.cyan },
+      TelescopeSelectionCaret = { fg = colors.cyan },
 
       -- NvimTree
       NvimTreeSymlink = { fg = colors.cyan, style = "bold" },
       NvimTreeRootFolder = { fg = colors.green, style = "bold" },
       NvimTreeFolderName = { fg = colors.blue },
-      NvimTreeFolderIcon = { fg = colors.dark_blue },
+      NvimTreeFolderIcon = { fg = colors.blue },
       NvimTreeEmptyFolderName = { fg = colors.grey_fg },
       NvimTreeOpenedFolderName = { fg = colors.yellow, style = "italic" },
       NvimTreeIndentMarker = { fg = colors.blue },
@@ -679,7 +683,7 @@ function theme.highlights(colors, config)
       LspDiagnosticsHint = { fg = colors.hint },
 
       -- NeoTree
-      NeoTreeDirectoryIcon = { fg = colors.dark_blue },
+      NeoTreeDirectoryIcon = { fg = colors.blue },
       NeoTreeDirectoryName = { fg = colors.blue },
       NeoTreeDirectoryNameOpened = { fg = colors.yellow, style = "italic" },
       NeoTreeRootName = { fg = colors.green, style = "bold" },
@@ -781,8 +785,8 @@ function theme.highlights(colors, config)
 
       -- Indent Blankline
       IndentBlanklineChar = { fg = colors.selection, style = "nocombine" },
-      IndentBlanklineSpaceChar = { fg = colors.gray, style = "nocombine" },
-      IndentBlanklineSpaceCharBlankline = { fg = colors.gray, style = "nocombine" },
+      IndentBlanklineSpaceChar = { fg = colors.grey, style = "nocombine" },
+      IndentBlanklineSpaceCharBlankline = { fg = colors.grey, style = "nocombine" },
       IndentBlanklineContextChar = { fg = colors.purple, style = "nocombine" },
       IndentBlanklineContextStart = { style = "underline", sp = colors.purple },
 
@@ -805,12 +809,12 @@ function theme.highlights(colors, config)
 
       -- Lightspeed
       LightspeedLabel = { fg = colors.pink, style = "bold,underline" },
-      LightspeedLabelOverlapped = { fg = colors.dark_pink, style = "underline" },
+      LightspeedLabelOverlapped = { fg = colors.pink, style = "underline" },
       LightspeedLabelDistant = { fg = colors.cyan, style = "bold,underline" },
       LightspeedLabelDistantOverlapped = { fg = colors.blue, style = "underline" },
       LightspeedShortcut = { fg = "#E5E9F0", bg = colors.pink, style = "bold,underline" },
-      LightspeedMaskedChar = { fg = colors.light_purple },
-      LightspeedGreyWash = { fg = colors.gray },
+      LightspeedMaskedChar = { fg = colors.purple },
+      LightspeedGreyWash = { fg = colors.grey },
       LightspeedUnlabeledMatch = { fg = colors.fg_light, style = "bold" },
       LightspeedOneCharMatch = { fg = colors.yellow, style = "bold,reverse" },
 
