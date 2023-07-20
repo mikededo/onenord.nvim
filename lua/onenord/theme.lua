@@ -20,11 +20,11 @@ function theme.highlights(colors, config)
       -- any character constant: 'c', '\n'
       Character = { fg = colors.green },
       -- a number constant: 5
-      Number = { fg = colors.orange },
+      Number = { fg = colors.baby_pink },
       -- a boolean constant: TRUE, false
-      Boolean = { fg = colors.orange },
+      Boolean = { fg = colors.baby_pink },
       -- a floating point constant: 2.3e10
-      Float = { fg = colors.orange },
+      Float = { fg = colors.baby_pink },
       -- any statement
       Statement = { fg = colors.purple },
       -- case, default, etc.
