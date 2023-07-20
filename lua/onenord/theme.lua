@@ -42,7 +42,7 @@ function theme.highlights(colors, config)
       -- same as Define
       Macro = { fg = colors.red },
       -- A typedef
-      Typedef = { fg = colors.purple },
+      Typedef = { fg = colors.base0a },
       -- preprocessor #if, #else, #endif, etc.
       PreCondit = { fg = colors.purple },
       -- any special symbol
@@ -263,8 +263,8 @@ function theme.highlights(colors, config)
       DashboardFooter = { fg = colors.green, style = "italic" },
 
       -- normal text and background color
-      Normal = { fg = colors.white, bg = colors.black },
-      NormalNC = { bg = colors.black },
+      Normal = { fg = colors.white, bg = colors.black2 },
+      NormalNC = { bg = colors.black2 },
       SignColumn = { fg = colors.white, bg = colors.none },
 
       -- the column separating vertically split windows
@@ -385,7 +385,7 @@ function theme.highlights(colors, config)
       -- Keywords related to loops: `for`, `while`, etc.
       ["@repeat"] = { fg = colors.purple, style = config.styles.keywords },
       -- String literals.
-      ["@string"] = { fg = colors.green, style = config.styles.strings },
+      ["@string"] = { fg = colors.vibrant_green, style = config.styles.strings },
       -- Regular expression literals.
       ["@string.regex"] = { fg = colors.orange },
       -- Escape characters within a string: `\n`, `\t`, etc.
