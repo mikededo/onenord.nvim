@@ -17,9 +17,9 @@ local colors = {
   line = "#31353d", -- for lines like vertsplit
   green = "#a7e07a",
   vibrant_green = "#a9cf76",
-  nord_blue = "#81A1C1",
+  nord_blue = "#81a1c1",
   blue = "#63adf2",
-  yellow = "#ECBE7B",
+  yellow = "#ecbe7b",
   sun = "#f2c481",
   purple = "#dc8ef3",
   dark_purple = "#c678dd",
@@ -41,12 +41,12 @@ local colors = {
   base07 = "#c8ccd4",
   base08 = "#e06c75",
   base09 = "#d19a66",
-  base0A = "#e5c07b",
-  base0B = "#98c379",
-  base0C = "#e5c07b",
-  base0D = "#61afef",
-  base0E = "#c678dd",
-  base0F = "#c8ccd4",
+  base0a = "#e5c07b",
+  base0b = "#98c379",
+  base0c = "#e5c07b",
+  base0d = "#61afef",
+  base0e = "#c678dd",
+  base0f = "#c8ccd4",
 }
 
 -- more semantically meaningful colors
@@ -69,5 +69,7 @@ colors.float = "#3B4252"
 colors.highlight = "#3F4758"
 colors.highlight_dark = "#434C5E"
 colors.selection = "#4C566A"
+
+colors.none = "NONE"
 
 return colors

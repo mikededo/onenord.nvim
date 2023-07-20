@@ -54,7 +54,7 @@ function theme.highlights(colors, config)
       -- character that needs attention like , or .
       Delimiter = { fg = colors.dark_blue },
       -- special things inside a comment
-      SpecialComment = { fg = colors.light_gray },
+      SpecialComment = { fg = colors.grey_fg },
       -- debugging statements
       Debug = { fg = colors.yellow },
       -- text that stands out, HTML links
@@ -65,7 +65,7 @@ function theme.highlights(colors, config)
       Error = { fg = colors.error, bg = colors.none, style = "bold,underline" },
       -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
       Todo = { fg = colors.yellow, bg = colors.none, style = "bold,italic" },
-      Comment = { fg = colors.light_gray, style = config.styles.comments }, -- normal comments
+      Comment = { fg = colors.grey_fg, style = config.styles.comments }, -- normal comments
       -- normal if, then, else, endif, switch, etc.
       Conditional = { fg = colors.purple, style = config.styles.keywords },
       -- normal for, do, while, etc.
@@ -96,7 +96,7 @@ function theme.highlights(colors, config)
       cssSelectorOp = { fg = colors.dark_blue },
       cssTagName = { fg = colors.yellow },
 
-      markdownBlockquote = { fg = colors.light_gray },
+      markdownBlockquote = { fg = colors.grey_fg },
       markdownBold = { fg = colors.purple, style = "bold" },
       markdownCode = { fg = colors.green },
       markdownCodeBlock = { fg = colors.green },
@@ -115,8 +115,8 @@ function theme.highlights(colors, config)
       markdownH6Delimiter = { fg = colors.light_green },
       markdownId = { fg = colors.yellow },
       markdownIdDeclaration = { fg = colors.purple },
-      markdownIdDelimiter = { fg = colors.light_gray },
-      markdownLinkDelimiter = { fg = colors.light_gray },
+      markdownIdDelimiter = { fg = colors.grey_fg },
+      markdownLinkDelimiter = { fg = colors.grey_fg },
       markdownItalic = { fg = colors.yellow, style = "italic" },
       markdownLinkText = { fg = colors.purple },
       markdownListMarker = { fg = colors.red },
@@ -133,13 +133,13 @@ function theme.highlights(colors, config)
 
     local editor = {
       -- normal text and background color for floating windows
-      NormalFloat = { fg = colors.fg, bg = colors.active },
+      NormalFloat = { fg = colors.darker_black, bg = colors.active },
       -- floating window border
       FloatBorder = { fg = colors.blue, bg = colors.active },
       -- used for the columns set with 'colorcolumn'
-      ColorColumn = { fg = colors.none, bg = colors.float },
+      ColorColumn = { fg = colors.base01, bg = colors.float },
       -- placeholder characters substituted for concealed text (see 'conceallevel')
-      Conceal = { bg = colors.bg },
+      Conceal = { bg = colors.none },
       -- the character under the cursor
       Cursor = { fg = colors.fg, bg = colors.none, style = "reverse" },
       -- like Cursor, but used when in IME mode
@@ -159,11 +159,11 @@ function theme.highlights(colors, config)
       -- line used for closed folds
       Folded = { fg = colors.dark_blue, bg = colors.none, style = "italic" },
       -- 'foldcolumn'
-      FoldColumn = { fg = colors.light_gray },
+      FoldColumn = { fg = colors.grey_fg },
       -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
       IncSearch = { fg = colors.yellow, bg = colors.selection, style = "bold,underline" },
       -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-      LineNr = { fg = colors.light_gray },
+      LineNr = { fg = colors.grey_fg },
       -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
       CursorLineNr = { fg = colors.fg },
       -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
@@ -209,17 +209,17 @@ function theme.highlights(colors, config)
       StatusLine = { fg = colors.fg, bg = colors.active },
       -- status lines of not-current windows Note: if this is equal to "StatusLine"
       -- Vim will use "^^^" in the status line of the current window.
-      StatusLineNC = { fg = colors.light_gray, bg = colors.active },
+      StatusLineNC = { fg = colors.grey_fg, bg = colors.active },
       -- status line of current terminal window
       StatusLineTerm = { fg = colors.fg, bg = colors.active },
       -- status lines of not-current terminal windows Note: if this is equal to "StatusLine"
       -- Vim will use "^^^" in the status line of the current window.
-      StatusLineTermNC = { fg = colors.light_gray, bg = colors.active },
+      StatusLineTermNC = { fg = colors.grey_fg, bg = colors.active },
       -- tab pages line, where there are no labels
-      TabLineFill = { fg = colors.light_gray, bg = colors.active },
+      TabLineFill = { fg = colors.grey_fg, bg = colors.active },
       -- tab pages line, active tab page label
       TablineSel = { fg = colors.cyan, bg = colors.bg },
-      Tabline = { fg = colors.light_gray, bg = colors.active },
+      Tabline = { fg = colors.grey_fg, bg = colors.active },
       -- titles for output from ":set all", ":autocmd" etc.
       Title = { fg = colors.green, bg = colors.none, style = "bold" },
       -- Visual mode selection
@@ -235,7 +235,7 @@ function theme.highlights(colors, config)
       -- window bar of current window
       WinBar = { fg = colors.fg, bg = colors.bg },
       -- window bar of not-current windows
-      WinBarNC = { fg = colors.light_gray, bg = colors.bg },
+      WinBarNC = { fg = colors.grey_fg, bg = colors.bg },
       -- Screen-column at the cursor, when 'cursorcolumn' is set.
       CursorColumn = { fg = colors.none, bg = colors.float },
       -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
@@ -316,41 +316,42 @@ function theme.highlights(colors, config)
     -- TreeSitter highlight groups
 
     local treesitter = {
+      ["@annotation"] = { fg = colors.base0f },
       -- Annotations that can be attached to the code to denote some kind of meta information. e.g. C++/Dart attributes.
-      ["@attribute"] = { fg = colors.purple },
+      ["@attribute"] = { fg = "#e06c75" },
       -- Boolean literals: `True` and `False` in Python.
       ["@boolean"] = { fg = colors.orange },
       -- Character literals: `'a'` in C.
-      ["@character"] = { fg = colors.green },
+      ["@character"] = { fg = colors.base08 },
       -- Line comments and block comments.
-      ["@comment"] = { fg = colors.light_gray, style = config.styles.comments },
+      ["@comment"] = { fg = colors.grey_fg, style = config.styles.comments },
       -- Keywords related to conditionals: `if`, `when`, `cond`, etc.
       ["@conditional"] = { fg = colors.purple, style = config.styles.keywords },
       -- Constants identifiers. These might not be semantically constant. E.g. uppercase variables in Python.
-      ["@constant"] = { fg = colors.cyan },
+      ["@constant"] = { fg = "#d19a66" },
       -- Built-in constant values: `nil` in Lua.
-      ["@constant.builtin"] = { fg = colors.orange },
+      ["@constant.builtin"] = { fg = colors.base09 },
       -- Constants defined by macros: `NULL` in C.
-      ["@constant.macro"] = { fg = colors.red },
+      ["@constant.macro"] = { fg = colors.base08 },
       -- Constructor calls and definitions: `{}` in Lua, and Java constructors.
-      ["@constructor"] = { fg = colors.yellow },
+      ["@constructor"] = { fg = colors.base0C },
       -- Syntax/parser errors. This might highlight large sections of code while the user is typing
       -- still incomplete code, use a sensible highlight.
-      ["@error"] = { fg = colors.error },
+      ["@error"] = { fg = colors.base08 },
       -- Exception related keywords: `try`, `except`, `finally` in Python.
-      ["@exception"] = { fg = colors.purple },
+      ["@exception"] = { fg = colors.base08 },
       -- Object and struct fields.
-      ["@field"] = { fg = colors.blue },
+      ["@field"] = { fg = "#e06c75" },
       -- Floating-point number literals.
-      ["@float"] = { fg = colors.orange },
+      ["@float"] = { fg = colors.base09 },
       -- Function calls and definitions.
       ["@function"] = { fg = colors.blue, style = config.styles.functions },
       -- Built-in functions: `print` in Lua.
-      ["@function.builtin"] = { fg = colors.cyan, style = config.styles.functions },
+      ["@function.builtin"] = { fg = colors.blue, style = config.styles.functions },
       -- Macro defined functions (calls and definitions): each `macro_rules` in Rust.
       ["@function.macro"] = { fg = colors.blue },
       -- File or module inclusion keywords: `#include` in C, `use` or `extern crate` in Rust.
-      ["@include"] = { fg = colors.blue },
+      ["@include"] = { link = "Include" },
       -- Keywords that don't fit into other categories.
       ["@keyword"] = { fg = colors.purple, style = config.styles.keywords },
       -- Keywords used to define a function: `function` in Lua, `def` and `lambda` in Python.
@@ -364,7 +365,7 @@ function theme.highlights(colors, config)
       -- Method calls and definitions.
       ["@method"] = { fg = colors.blue, style = config.styles.functions },
       -- Identifiers referring to modules and namespaces.
-      ["@namespace"] = { fg = colors.yellow },
+      ["@namespace"] = { fg = "#e5c07b" },
       -- Numeric literals that don't fit into other categories.
       ["@number"] = { fg = colors.orange },
       -- Binary or unary operators: `+`, and also `->` and `*` in C.
@@ -374,13 +375,13 @@ function theme.highlights(colors, config)
       -- References to parameters of a function.
       ["@parameter.reference"] = { fg = colors.red },
       -- Same as `@field`.
-      ["@property"] = { fg = colors.blue },
+      ["@property"] = { fg = "#e06c75" },
       -- Punctuation delimiters: Periods, commas, semicolons, etc.
-      ["@punctuation.delimiter"] = { fg = colors.dark_blue },
+      ["@punctuation.delimiter"] = { fg = "#abb2bf" },
       -- Brackets, braces, parentheses, etc.
-      ["@punctuation.bracket"] = { fg = colors.dark_blue },
+      ["@punctuation.bracket"] = { fg = "#abb2bf" },
       -- Special punctuation that doesn't fit into the previous categories.
-      ["@punctuation.special"] = { fg = colors.dark_blue },
+      ["@punctuation.special"] = { fg = "#abb2bf" },
       -- Keywords related to loops: `for`, `while`, etc.
       ["@repeat"] = { fg = colors.purple, style = config.styles.keywords },
       -- String literals.
@@ -390,11 +391,11 @@ function theme.highlights(colors, config)
       -- Escape characters within a string: `\n`, `\t`, etc.
       ["@string.escape"] = { fg = colors.orange },
       -- Identifiers referring to symbols or atoms.
-      ["@symbol"] = { fg = colors.cyan },
+      ["@symbol"] = { fg = "#e5c07b" },
       -- Tags like HTML tag names.
       ["@tag"] = { fg = colors.yellow },
       -- HTML tag attributes.
-      ["@tag.attribute"] = { fg = colors.blue },
+      ["@tag.attribute"] = { fg = "#e5c07b" },
       -- Tag delimiters like `<` `>` `/`.
       ["@tag.delimiter"] = { fg = colors.dark_blue },
       -- Non-structured text. Like text in a markup language.
@@ -496,8 +497,8 @@ function theme.highlights(colors, config)
       LspReferenceWrite = { style = "underline", sp = colors.yellow },
 
       LspSignatureActiveParameter = { fg = colors.none, bg = colors.highlight_dark, style = "bold" },
-      LspCodeLens = { fg = colors.light_gray },
-      LspInlayHint = { fg = colors.light_gray, bg = colors.active },
+      LspCodeLens = { fg = colors.grey_fg },
+      LspInlayHint = { fg = colors.grey_fg, bg = colors.active },
 
       -- LSP Semantic Token Groups
       ["@lsp.type.namespace"] = { link = "@namespace" },
@@ -560,7 +561,7 @@ function theme.highlights(colors, config)
       CmpItemAbbrDeprecated = { fg = colors.fg },
       CmpItemAbbrMatch = { fg = colors.blue, style = "bold" },
       CmpItemAbbrMatchFuzzy = { fg = colors.blue, underline = true },
-      CmpItemMenu = { fg = colors.light_gray },
+      CmpItemMenu = { fg = colors.grey_fg },
 
       CmpItemKindText = { fg = colors.orange },
       CmpItemKindMethod = { fg = colors.blue },
@@ -586,17 +587,17 @@ function theme.highlights(colors, config)
       NotifyERRORBorder = { fg = colors.error },
       NotifyWARNBorder = { fg = colors.warn },
       NotifyINFOBorder = { fg = colors.info },
-      NotifyDEBUGBorder = { fg = colors.light_gray },
+      NotifyDEBUGBorder = { fg = colors.grey_fg },
       NotifyTRACEBorder = { fg = colors.hint },
       NotifyERRORIcon = { fg = colors.error },
       NotifyWARNIcon = { fg = colors.warn },
       NotifyINFOIcon = { fg = colors.info },
-      NotifyDEBUGIcon = { fg = colors.light_gray },
+      NotifyDEBUGIcon = { fg = colors.grey_fg },
       NotifyTRACEIcon = { fg = colors.hint },
       NotifyERRORTitle = { fg = colors.error },
       NotifyWARNTitle = { fg = colors.warn },
       NotifyINFOTitle = { fg = colors.info },
-      NotifyDEBUGTitle = { fg = colors.light_gray },
+      NotifyDEBUGTitle = { fg = colors.grey_fg },
       NotifyTRACETitle = { fg = colors.hint },
 
       -- Trouble
@@ -611,7 +612,7 @@ function theme.highlights(colors, config)
       diffOldFile = { fg = colors.yellow },
       diffNewFile = { fg = colors.orange },
       diffFile = { fg = colors.blue },
-      diffLine = { fg = colors.light_gray },
+      diffLine = { fg = colors.grey_fg },
       diffIndexLine = { fg = colors.purple },
 
       -- Neogit
@@ -658,7 +659,7 @@ function theme.highlights(colors, config)
       NvimTreeRootFolder = { fg = colors.green, style = "bold" },
       NvimTreeFolderName = { fg = colors.blue },
       NvimTreeFolderIcon = { fg = colors.dark_blue },
-      NvimTreeEmptyFolderName = { fg = colors.light_gray },
+      NvimTreeEmptyFolderName = { fg = colors.grey_fg },
       NvimTreeOpenedFolderName = { fg = colors.yellow, style = "italic" },
       NvimTreeIndentMarker = { fg = colors.blue },
       NvimTreeGitDirty = { fg = colors.yellow },
@@ -738,7 +739,7 @@ function theme.highlights(colors, config)
       DiagnosticWarnBorder = { link = "DiagnosticWarn" },
       DiagnosticHintBorder = { link = "DiagnosticHint" },
       DiagnosticInfoBorder = { link = "DiagnosticInfo" },
-      DiagnosticPos = { fg = colors.light_gray },
+      DiagnosticPos = { fg = colors.grey_fg },
       DiagnosticWord = { fg = colors.fg },
       CallHierarchyNormal = { link = "SagaNormal" },
       CallHierarchyBorder = { link = "SagaBorder" },
@@ -766,12 +767,12 @@ function theme.highlights(colors, config)
       BufferVisible = { fg = colors.fg, bg = colors.bg },
       BufferVisibleIndex = { fg = colors.fg, bg = colors.bg },
       BufferVisibleMod = { fg = colors.yellow, bg = colors.bg, style = "bold" },
-      BufferVisibleSign = { fg = colors.light_gray, bg = colors.bg },
+      BufferVisibleSign = { fg = colors.grey_fg, bg = colors.bg },
       BufferVisibleTarget = { fg = colors.red, bg = colors.bg, style = "bold" },
-      BufferInactive = { fg = colors.light_gray, bg = colors.active },
-      BufferInactiveIndex = { fg = colors.light_gray, bg = colors.active },
+      BufferInactive = { fg = colors.grey_fg, bg = colors.active },
+      BufferInactiveIndex = { fg = colors.grey_fg, bg = colors.active },
       BufferInactiveMod = { fg = colors.yellow, bg = colors.active },
-      BufferInactiveSign = { fg = colors.light_gray, bg = colors.active },
+      BufferInactiveSign = { fg = colors.grey_fg, bg = colors.active },
       BufferInactiveTarget = { fg = colors.red, bg = colors.active, style = "bold" },
 
       -- Sneak
@@ -797,7 +798,7 @@ function theme.highlights(colors, config)
       HopNextKey = { fg = colors.fg_light, style = "bold" },
       HopNextKey1 = { fg = colors.cyan, style = "bold" },
       HopNextKey2 = { fg = colors.purple },
-      HopUnmatched = { fg = colors.light_gray },
+      HopUnmatched = { fg = colors.grey_fg },
 
       -- Fern
       FernBranchText = { fg = colors.blue },
