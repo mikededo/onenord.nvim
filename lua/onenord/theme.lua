@@ -133,7 +133,7 @@ function theme.highlights(colors, config)
 
     local editor = {
       -- normal text and background color for floating windows
-      NormalFloat = { fg = colors.darker_black, bg = colors.active },
+      NormalFloat = { fg = colors.white, bg = colors.darker_black },
       -- floating window border
       FloatBorder = { fg = colors.blue, bg = colors.active },
       -- used for the columns set with 'colorcolumn'
@@ -263,8 +263,8 @@ function theme.highlights(colors, config)
       DashboardFooter = { fg = colors.green, style = "italic" },
 
       -- normal text and background color
-      Normal = { fg = colors.white, bg = colors.one_bg },
-      NormalNC = { bg = colors.one_bg },
+      Normal = { fg = colors.white, bg = colors.black },
+      NormalNC = { bg = colors.black },
       SignColumn = { fg = colors.white, bg = colors.none },
 
       -- the column separating vertically split windows
@@ -695,8 +695,8 @@ function theme.highlights(colors, config)
       NeoTreeGitConflict = { fg = colors.red },
       NeoTreeGitModified = { fg = colors.yellow },
       NeoTreeGitUntracked = { fg = colors.green },
-      NeoTreeNormal = { fg = colors.white, bg = colors.one_bg },
-      NeoTreeNormalNC = { fg = colors.white, bg = colors.one_bg },
+      NeoTreeNormal = { fg = colors.white, bg = colors.black },
+      NeoTreeNormalNC = { fg = colors.white, bg = colors.black },
       NeoTreeSymbolicLinkTarget = { fg = colors.cyan, style = "bold" },
 
       -- WhichKey
