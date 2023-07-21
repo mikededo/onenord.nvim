@@ -288,7 +288,7 @@ function theme.highlights(colors, config)
       SignColumn = { fg = colors.white, bg = colors.none },
 
       -- the column separating vertically split windows
-      VertSplit = { fg = colors.line },
+      VertSplit = { fg = colors.none },
 
       EndOfBuffer = { fg = colors.grey },
     }
@@ -326,7 +326,7 @@ function theme.highlights(colors, config)
 
     -- Add window split borders
     if config.borders then
-      editor.VertSplit['fg'] = colors.selection
+      editor.VertSplit['fg'] = colors.grey_fg
     end
 
     return editor
