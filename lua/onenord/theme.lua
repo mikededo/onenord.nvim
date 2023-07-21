@@ -62,7 +62,7 @@ function theme.highlights(colors, config)
       -- left blank, hidden
       Ignore = { fg = colors.cyan, bg = colors.base04, style = 'bold' },
       -- any erroneous construct
-      Error = { fg = colors.error, bg = colors.none, style = 'bold,underline' },
+      Error = { fg = colors.error, bg = colors.none, style = 'underline' },
       -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
       Todo = { fg = colors.yellow, bg = colors.none, style = 'bold,italic' },
       Comment = { fg = colors.grey_fg, style = config.styles.comments }, -- normal comments
@@ -757,13 +757,16 @@ function theme.highlights(colors, config)
       RenameBorder = { link = 'SagaBorder' },
       RenameNormal = { fg = colors.orange, bg = colors.black },
       RenameMatch = { link = 'Search' },
-      DiagnosticBorder = { link = 'SagaBorder' },
+      DiagnosticBorder = { bg = colors.dark },
       DiagnosticSource = { fg = 'gray' },
-      DiagnosticNormal = { link = 'SagaNormal' },
-      DiagnosticErrorBorder = { link = 'DiagnosticError' },
-      DiagnosticWarnBorder = { link = 'DiagnosticWarn' },
-      DiagnosticHintBorder = { link = 'DiagnosticHint' },
-      DiagnosticInfoBorder = { link = 'DiagnosticInfo' },
+      DiagnosticHint = { fg = colors.purple },
+      DiagnosticError = { fg = colors.red },
+      DiagnosticWarn = { fg = colors.yellow },
+      DiagnosticInformation = { fg = colors.green },
+      DiagnosticErrorBorder = { bg = colors.dark, fg = colors.error },
+      DiagnosticWarnBorder = { bg = colors.dark, fg = colors.warn },
+      DiagnosticHintBorder = { bg = colors.dark, fg = colors.hint },
+      DiagnosticInfoBorder = { bg = colors.dark, fg = colors.info },
       DiagnosticPos = { fg = colors.grey_fg },
       DiagnosticWord = { fg = colors.white },
       CallHierarchyNormal = { link = 'SagaNormal' },
