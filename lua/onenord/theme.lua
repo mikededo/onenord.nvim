@@ -135,7 +135,8 @@ function theme.highlights(colors, config)
       -- normal text and background color for floating windows
       NormalFloat = { fg = colors.white, bg = colors.darker_black },
       -- floating window border
-      FloatBorder = { fg = colors.blue, bg = colors.active },
+      FloatBorder = { fg = colors.one_bg3, bg = colors.darker_black },
+      FloatTitle = { fg = colors.grey, bg = colors.darker_black },
       -- used for the columns set with 'colorcolumn'
       ColorColumn = { fg = colors.base01, bg = colors.float },
       -- placeholder characters substituted for concealed text (see 'conceallevel')
@@ -754,8 +755,8 @@ function theme.highlights(colors, config)
       DefinitionSearch = { link = 'Search' },
       HoverNormal = { link = 'SagaNormal' },
       HoverBorder = { link = 'SagaBorder' },
-      RenameBorder = { link = 'SagaBorder' },
-      RenameNormal = { fg = colors.orange, bg = colors.black },
+      RenameBorder = { link = colors.dark },
+      RenameNormal = { fg = colors.white, bg = colors.black },
       RenameMatch = { link = 'Search' },
       DiagnosticBorder = { bg = colors.dark },
       DiagnosticSource = { fg = 'gray' },
